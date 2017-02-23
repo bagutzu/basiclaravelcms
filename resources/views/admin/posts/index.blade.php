@@ -23,7 +23,7 @@
                     <td>{{$post->title}}</td>
                     <td>{{$post->body}}</td>
                     <td>{{$post->user->name}}</td>
-                    <td>{{$post->category_id}}</td>
+                    <td>{{$post->category ? $post->category->name : "Not categorized"}}</td>
                     <td><img height="50" src="{{$post->photo ? asset($post->photo->path) : "http://placehold.it/200x200"}}" alt=""></td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
