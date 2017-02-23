@@ -105,6 +105,7 @@ class AdminUsersController extends Controller
         //
         $user = User::findOrFail($id);
 
+        $input = array_filter($request, 'strlen');
 
         if($file = $request->file('file')){
             $name = time() . $file->getClientOriginalName();
@@ -117,7 +118,6 @@ class AdminUsersController extends Controller
 
         }
 
-        $input = array_filter($input, 'strlen');
 
         $user->update($input);
 
