@@ -105,7 +105,7 @@ class AdminUsersController extends Controller
         //
         $user = User::findOrFail($id);
 
-        $input = array_filter($request, 'strlen');
+        $input = array_filter($request->all(), 'strlen');
 
         if($file = $request->file('file')){
             $name = time() . $file->getClientOriginalName();

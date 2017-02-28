@@ -15,6 +15,8 @@
             <th>Created by</th>
             <th>Category</th>
             <th>Photo</th>
+            <th>Post</th>
+            <th>Comments</th>
             <th>Created at</th>
             <th>Updated at</th>
         </tr>
@@ -29,6 +31,8 @@
                     <td>{{$post->user->name}}</td>
                     <td>{{$post->category ? $post->category->name : "Not categorized"}}</td>
                     <td><img height="50" src="{{$post->photo ? asset($post->photo->path) : "http://placehold.it/200x200"}}" alt=""></td>
+                    <td><a href="{{route('home.post', $post->id)}}"> View Post</a></td>
+                    <td><a href="{{route('comments.show', $post->id)}}">View Comments</a></td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
                 </tr>
